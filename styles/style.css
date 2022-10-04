@@ -1,0 +1,270 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+
+* {
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Bangers', cursive;
+    text-shadow: 3px 0 black, 0 5px black,
+    5px 0 black, 0 5px black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: 
+    linear-gradient(rgba(0, 0, 0, 0.407), rgba(0, 0, 0, 0.407)),
+    url(../assets/images/img.jpg);
+}
+
+.card {
+    transform-style: preserve-3d;
+    transition: .5s;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transition: transform .5s;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.card_back, .card_front {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.401);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.flip {
+    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+}
+
+.card_front {
+    background-color: rgb(0, 0, 0);
+    border: 3px solid white;
+
+    /* fazer a carta ficar ao contrário - precisa de b*/
+    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+}
+
+.card_back {
+    background-color: yellow  ;
+    font-size: 30px;
+    border: 7px solid rgb(0, 0, 0);
+
+}
+.card_back:hover{
+    background-color: rgba(255, 0, 0, 0.827);
+}
+
+.card_back img {
+    width: 60%;
+}
+
+.gradient-border {
+    --borderWidth: 5px;
+    border-radius: var(--borderWidth);
+    position: relative;
+    color: white;
+}
+
+.gradient-border .card_front img {
+    animation: imgMove 1s linear alternate 1;
+}
+
+.gradient-border:after {
+    content: '';
+    position: absolute;
+    top: calc(-1 * var(--borderWidth));
+    left: calc(-1 * var(--borderWidth));
+    height: calc(100% + var(--borderWidth) * 3);
+    width: calc(100% + var(--borderWidth) * 2.2);
+    background: linear-gradient(60deg, #ff0000, #eaff00, #00ff37, #00ffc8, #003cff, #ff00ea);
+    border-radius: calc(2 * var(--borderWidth));
+    z-index: -1;
+    animation: animatedgradient 4s ease alternate infinite;
+    background-size: 300% 300%;
+}
+
+@keyframes imgMove {
+    0% {
+        transform: scale(1)
+    }
+    50% {
+        transform: scale(.8)
+    }
+    100% {
+        transform: scale(1)
+    }
+}
+
+@keyframes animatedgradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+#gameBoard {
+    max-width: 700px;
+    display: grid;
+    grid-template: repeat(5, 1fr) / repeat(4, 1fr);
+    /* gap: 20px; */
+}
+
+#yay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: none;
+}
+
+#gameOver {
+    /* ocupar a tela inteira e por cima dos outros elementos */
+    position: absolute;
+    width: 100%;
+    height: 120%;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    font-size: 40px;
+    /* display vai ser alterado pelo script */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    top: 0;
+}
+
+#restartBtn {
+    font-family: 'Bangers', cursive;
+    border: 7px solid rgb(0, 0, 0);
+    padding: 20px;
+    font-size: 20px;
+    background-color: yellow;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+/* HOVER */
+
+.card:hover, #restartBtn:hover {
+    cursor: pointer;
+    /* transform: scale(1.1); */
+}
+
+
+/* RESPONSIVIDADE */
+
+@media screen and (min-width: 0px) {
+    #gameBoard {
+        /* background-color: tomato; */
+        /* width:100vw; */
+        grid-template: repeat(5, 1fr) / repeat(4, 1fr);
+        gap: 15px;
+        justify-items: center;
+        justify-content: center;
+    }
+    .card {
+        width: 70px;
+        height: 70px;
+    }
+    .card_front, .card_back {
+        border-radius: 10px;
+    }
+    .greeting {
+        text-align: center;
+        font-size: 30px;
+    }
+    .btnStart {
+        margin-right: 30% ;
+        }
+}
+
+@media screen and (min-width: 375px) {
+    #gameBoard {
+        /* background-color: blue; */
+        grid-template: repeat(5, 1fr) / repeat(4, 1fr);
+    }
+    .card_front, .card_back {
+        border-radius: 5px;
+    }
+    .card {
+        width: 70px;
+        height: 90px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    #gameBoard {
+        /* background-color: lightcoral; */
+        max-width: 600px;
+        grid-template: repeat(4, 1fr) / repeat(5, 1fr);
+    }
+    .card {
+        width: 110px;
+        height: 130px;
+    }
+    .btnStart {
+        margin-right: 45% ;
+        }
+}
+
+@media screen and (min-width: 1024px) {
+    #gameBoard {
+        /* background-color: lightgreen; */
+        max-width: 80vw;
+        grid-template: repeat(4, 1fr) / repeat(5, 1fr);
+    }
+    .card {
+        width: 140px;
+        height: 160px;
+    }
+    .btnStart{
+        transform: scale(.9);
+    }
+
+}
+
+@media screen and (min-width: 1440px) {
+    #gameBoard {
+        /* background-color: lightpink; */
+        max-width: 80vw;
+        grid-template: repeat(4, 1fr) / repeat(5, 1fr);
+    }
+    .card {
+        width: 150px;
+        height: 170px;
+    }
+    header {
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (min-height: 800px) {
+    header {
+        margin: 10px 0;
+    }
+}
+
+@media screen and (min-height: 850px) {
+    header {
+        margin: 30px 0;
+    }
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="match the memory game with theme Avengers from Marvel" />
+    <title>Jogo da memoria</title>
+
+    <!-- favicon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/header.css">
+</head>
+
+<!-- fonts -->
+<!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Teko:wght@300&display=swap" rel="stylesheet"> -->
+
+<!-- icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+    crossorigin="anonymous" />
+
+
+<body>
+    <header>
+        <div class="signature">
+            <h2>Dev Márcio Sena</h2>
+
+
+        </div>
+        <div class="btnStart">
+            <div class="btn_front gradient-border">
+                <div id="clock">00:00</div>
+            </div>
+            <div class="btn_back">
+                <button id="startGame" onclick="startGame()">
+                    JOGAR
+                </button>
+            </div>
+        </div>
+        <div onclick="muteSounds()" id="muteBtn"></div>
+    </header>
+
+    <div id="gameBoard">
+
+    </div>
+    <div id="yay">
+        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+        <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_ISbOsd.json" background="transparent"
+            speed="1" loop autoplay></lottie-player>
+    </div>
+    <!-- FIM DO JOGO -->
+    <div id="gameOver">
+        <div class="greeting">
+            <h2>Parabéns!</h2>
+            <p id="result">Seu tempo foi de </p>
+        </div>
+        <button id="restartBtn" onclick="restart();">Jogar novamente</button>
+    </div>
+
+    <!-- AUDIOS -->
+    <audio src="./assets/audios/miss.wav" id="missSound"></audio>
+    <audio src="./assets/audios/hit.mp3" id="hitSound"></audio>
+
+    <script src="./scripts/game.js"></script>
+    <script src="./scripts/interface.js"></script>
+    <script src="./scripts/sounds.js"></script>
+</body>
+
+</html>
