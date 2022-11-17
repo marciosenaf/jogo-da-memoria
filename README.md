@@ -6,7 +6,7 @@ Link do Projeto: https://jogo-da-memoria-marciosena.pages.dev/
 
 Este jogo é uma aplicação front-end, tem uma interface no estilo HQ, com personagens da MARVEL e tem como principal objetivo vc resolver o jogo da memoria no menor tempo .
 
-## Layout no mobile
+## Layout no Mobile
 ![Mobile ](https://github.com/marciosenaf/jogo-da-memoria/blob/main/assets/images/mobile.readme.png)
 
 ## Layout no computador
