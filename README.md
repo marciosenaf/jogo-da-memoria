@@ -1,6 +1,6 @@
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/marciosenaf/jogo-da-memoria/blob/main/LICENSE) 
 
-# Sobre o projeto
+# Sobre o Projeto
 
 Link do Projeto: https://jogo-da-memoria-marciosena.pages.dev/
 
