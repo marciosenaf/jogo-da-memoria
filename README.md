@@ -34,6 +34,5 @@ start index.html
 
 # Autor
 
-Márcio Sena Santos Filho
-
+Márcio Sena 
 https://www.linkedin.com/in/marciosenaf/
